@@ -45,7 +45,9 @@ function getEmployees() {
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < list.length; j++) {
       if (list[j].innerText === array[i].name) {
-        const ulList = document.querySelector('ul');
+        let ulList = null;
+
+        ulList = document.querySelector('ul');
 
         newLi = list[j].cloneNode(true);
         ulList.appendChild(newLi);
