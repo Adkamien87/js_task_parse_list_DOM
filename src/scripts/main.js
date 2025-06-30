@@ -1,9 +1,11 @@
 'use strict';
 
 const list = document.querySelectorAll('li');
-const array = [];
+let array = [];
 
 function sortList() {
+  array = [];
+
   for (let i = 0; i < list.length; i++) {
     const fullName = list[i].innerText;
     const salary = list[i].getAttribute('data-salary');
@@ -38,12 +40,13 @@ function sortList() {
 }
 
 function getEmployees() {
-  const ulList = document.querySelector('ul');
   let newLi = document.createElement('li');
 
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < list.length; j++) {
       if (list[j].innerText === array[i].name) {
+        const ulList = document.querySelector('ul');
+
         newLi = list[j].cloneNode(true);
         ulList.appendChild(newLi);
         list[j].remove();
